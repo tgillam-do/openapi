@@ -45,6 +45,9 @@ tags:
 
       - `Accept: application/vnd.digitalocean.reserveip+json`
 
+  - name: Action Gateway
+    description: Manage versioned tool collections used by Action Gateway sessions.
+
   - name: Apps
     description: |-
       App Platform is a Platform-as-a-Service (PaaS) offering from DigitalOcean that allows
@@ -555,6 +558,26 @@ tags:
       resources assigned to them.
 
 paths:
+  /v2/toolbelts:
+    get:
+      $ref: "resources/action_gateway/toolbelts_list.yml"
+    post:
+      $ref: "resources/action_gateway/toolbelts_create.yml"
+
+  /v2/toolbelts/{name}:
+    get:
+      $ref: "resources/action_gateway/toolbelts_get.yml"
+    delete:
+      $ref: "resources/action_gateway/toolbelts_delete.yml"
+
+  /v2/toolbelts/{name}/tools/add:
+    post:
+      $ref: "resources/action_gateway/toolbelts_add_tools.yml"
+
+  /v2/toolbelts/{name}/tools/remove:
+    post:
+      $ref: "resources/action_gateway/toolbelts_remove_tools.yml"
+
   /v2/1-clicks:
     get:
       $ref: "resources/1-clicks/oneClicks_list.yml"
